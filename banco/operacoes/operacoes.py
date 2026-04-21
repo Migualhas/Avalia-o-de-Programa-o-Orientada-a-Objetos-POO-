@@ -1,3 +1,10 @@
+''' 
+Classe operacoes
+
+- Adicionando classe operacoes para manipular e adicionar a historico da conta
+
+'''
+
 class Operacoes:
     def __init__(self, tipo, valor, data):
         self.tipo = tipo
