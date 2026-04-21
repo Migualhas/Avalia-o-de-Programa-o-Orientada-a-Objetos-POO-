@@ -1,5 +1,13 @@
 from operacoes.operacoes import Operacoes
 
+''' 
+Classe banco
+
+- cria a classe banco para armazenar as contas criadas pelo sistema
+- tambem implementa funcoes adicionar e buscar contas 
+
+'''
+
 class Banco:
     def __init__(self, nome):
         self._nome = nome
@@ -13,6 +21,14 @@ class Banco:
             if conta._numero == numero:
                 return conta
         return None
+
+''' 
+Classe Conta
+
+- Conta classe Pai 
+- Implementa depositar e a propria classe
+
+'''
 
 class Conta:
     def __init__(self, numero, cliente_objeto, saldo):
@@ -42,6 +58,16 @@ class Conta:
             self._historico.append(nova_op)
             print(f"Depósito feito com sucesso! Novo saldo: R$ {self._saldo:.2f}")
 
+''' 
+Classe ContaCorrente
+
+- ContaCorrente classe filha
+- Implementa sacar especifico de CC adicionando a regra de 4 saques por mes sem taxa 
+e adicionando taxa de 2.50 apos.
+- adiciona atributo limite(Limite especial da conta "Credito")
+
+'''
+
 class ContaCorrente(Conta):
     def __init__(self, numero, cliente, saldo):
         super().__init__(numero, cliente, saldo)
@@ -69,6 +95,15 @@ class ContaCorrente(Conta):
             nova_op = Operacoes("saque cc", valor, data)
             self._historico.append(nova_op)
             print(f"Saque feito com sucesso! Novo saldo: R$ {self._saldo:.2f}")
+
+''' 
+Classe ContaPoupanca
+
+- ContaPoupanca classe filha
+- Implementa sacar especifico de CP adicionando sacar especifico que apenas permite apenas 2 saques por mes
+- Adicionando a regra de juros de rendimento 0.02
+
+'''
 
 class ContaPoupanca(Conta):
     def aplicar_rendimento(self):
