@@ -24,7 +24,7 @@ Para atender aos requisitos da avaliação, o projeto implementa:
 
 ## Estrutura do Projeto
 
-```text
+```
 banco/
 │
 ├── cliente/
@@ -33,4 +33,21 @@ banco/
 │   └── Contas.py          # Classes Banco, Conta, Corrente e Poupança
 ├── operacoes/
 │   └── operacoes.py       # Classe Operacoes (Histórico)
-└── main.py                # Ponto de entrada do sistema (Menu)
+
+```
+
+Instruções de Execução
+
+Como rodar
+Abra o terminal ou prompt de comando.
+
+Navegue até a pasta raiz do projeto:
+
+Execute o arquivo principal: main.py
+
+📝 Regras de Negócio Implementadas
+Não é permitido sacar valores superiores ao saldo disponível (somado ao limite, no caso da conta corrente).
+
+O sistema valida a quantidade de saques mensais para aplicar taxas ou bloqueios.
+
+O número da conta é gerado aleatoriamente entre 1000 e 9999
